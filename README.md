@@ -12,7 +12,7 @@ for your platform and select python 3 version.
 
 After installing update `conda` from the `conda-forge` repo: 
 ```
-conda update conda -c conda-forge 
+conda update conda 
 ```
 
 ### Install
@@ -21,8 +21,9 @@ Fork [wedavey/hbrew](https://github.com/wedavey/hbrew) then install
 from github:
 ```bash
 git clone git@github.com:<your-user-name>/hbrew.git
-conda env create -f hbrew/env.yml -n hbrew
+cd hbrew
+conda env create -f env.yml
 conda activate hbrew
-cd hbrew; python setup.py develop
+python setup.py develop
 ```
 
