@@ -4,9 +4,9 @@ import os
 
 # paths
 TOPDIR = os.path.dirname(__file__)
-ATNLP = os.path.join(TOPDIR,'hbrew')
+HBREW = os.path.join(TOPDIR,'hbrew')
 SCRIPTS = os.path.join(TOPDIR, 'scripts')
-SHARE = os.path.join(ATNLP, 'share')
+SHARE = os.path.join(HBREW, 'share')
 
 # scripts
 script_exts = ['*.py', '*.sh']
@@ -14,7 +14,7 @@ scripts = [p for ext in script_exts for p in
            iglob(os.path.join(SCRIPTS,'**',ext), recursive=True)]
 # data
 data_exts = ['*.py', '*.yml']
-data = [os.path.relpath(f, ATNLP) for ext in data_exts
+data = [os.path.relpath(f, HBREW) for ext in data_exts
         for f in iglob(os.path.join(SHARE,'**',ext),recursive=True)]
 
 # requirements
@@ -30,7 +30,6 @@ install_requires=[
     "ipython", 
     "jupyter", 
     "notebook"
-    ],
 ]
 
 setup(
@@ -42,11 +41,11 @@ setup(
     author='Will Davey',
     author_email='wedavey@gmail.com',
     #license=None,
-    packages=find_packages(),
+    packages=find_packages(include=['hbrew']),
     package_data={'hbrew':data},
     python_requires=">=3.7",
     install_requires=install_requires,
-    extras_require=extras_requires,
+    #extras_require=extras_requires,
     scripts=scripts,
     version='0.1.0',
     classifiers=[
